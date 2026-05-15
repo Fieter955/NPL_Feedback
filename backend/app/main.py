@@ -47,3 +47,9 @@ async def startup_event():
 @app.get("/")
 async def root():
     return {"message": "Welcome to AI Essay Evaluator API"}
+
+if __name__ == "__main__":
+    import uvicorn
+    # Using string reference "app.main:app" allows uvicorn to handle the imports correctly
+    # when run from the backend/ directory.
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
